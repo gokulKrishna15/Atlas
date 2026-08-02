@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Atlas Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="page">
+
+  <header class="header">
+    <div class="header__mark" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="40" height="40">
+        <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M32 4 L32 60 M4 32 L60 32" stroke="currentColor" stroke-width="1"/>
+        <path d="M32 10 L36 32 L32 54 L28 32 Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="header__text">
+      <p class="header__eyebrow">Field Notes No. 01</p>
+      <h1 class="header__title">Atlas Quiz</h1>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" role="tablist" aria-label="Choose a quiz"></nav>
+
+  <main class="card" id="card">
+    <div class="card__ledger">
+      <span id="stat-progress" class="ledger__item">Q 0/0</span>
+      <span id="stat-score" class="ledger__item">Score 0</span>
+      <span id="stat-best" class="ledger__item">Best —</span>
+    </div>
+
+    <div class="card__prompt-wrap">
+      <p class="card__label" id="prompt-label">Which country flies this flag?</p>
+      <div class="card__prompt" id="prompt"></div>
+    </div>
+
+    <div class="options" id="options" role="group" aria-label="Answer options"></div>
+
+    <div class="feedback" id="feedback" aria-live="polite"></div>
+
+    <div class="card__actions">
+      <button class="btn btn--ghost" id="btn-restart" type="button">Start over</button>
+      <button class="btn btn--primary" id="btn-next" type="button" disabled>Next question</button>
+    </div>
+
+    <div class="stamp" id="stamp" aria-hidden="true"></div>
+  </main>
+
+  <footer class="footer">
+    <p>Built for personal use · scores are saved on this device only</p>
+  </footer>
+
+</div>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
