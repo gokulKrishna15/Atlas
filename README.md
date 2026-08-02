@@ -3,7 +3,7 @@
 A small, static, no-backend MCQ quiz for flags and capitals. Pure HTML/CSS/JS —
 no build step, no server, no database.
 
-## Run it locally
+## Run it locally without backend
 
 Just open `index.html` in a browser, or serve the folder so ES modules load
 over http (double-clicking the file works in most browsers too, but if you
