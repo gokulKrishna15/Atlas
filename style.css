@@ -160,8 +160,17 @@ body {
 }
 
 .card__prompt--flag {
-  font-size: 88px;
   line-height: 1;
+}
+
+.flag-tile {
+  width: 140px;
+  height: 100px;
+  border-radius: 4px;
+  border: 1px solid var(--paper-line);
+  box-shadow: 0 6px 16px -8px rgba(27,42,74,0.35);
+  background-size: cover;
+  background-position: center;
 }
 
 .card__prompt--text {
@@ -310,6 +319,6 @@ body {
 @media (max-width: 420px) {
   .options { grid-template-columns: 1fr; }
   .header__title { font-size: 28px; }
-  .card__prompt--flag { font-size: 64px; }
+  .flag-tile { width: 110px; height: 78px; }
   .card__prompt--text { font-size: 24px; }
 }

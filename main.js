@@ -29,6 +29,16 @@ const DECKS = [
 const QUESTIONS_PER_ROUND = 10;
 const OPTION_COUNT = 4;
 
+// Windows browsers don't render flag emoji as images — they fall back to
+// showing the two letters as plain text. To get a real flag image on every
+// OS, we decode the ISO country code from the emoji's regional-indicator
+// characters and render it with the flag-icons CSS library instead.
+function emojiFlagToIsoCode(flagEmoji) {
+  return [...flagEmoji]
+    .map((char) => String.fromCodePoint(char.codePointAt(0) - 0x1f1e6 + 0x61))
+    .join("");
+}
+
 // ---- State ---------------------------------------------------------------
 let activeDeck = DECKS[0];
 let questionIndex = 0;
@@ -99,7 +109,12 @@ function renderQuestion() {
   promptLabelEl.textContent = activeDeck.promptLabel;
 
   promptEl.className = `card__prompt card__prompt--${activeDeck.promptType}`;
-  promptEl.textContent = currentQuestion.promptText;
+  if (activeDeck.promptType === "flag") {
+    const isoCode = emojiFlagToIsoCode(currentQuestion.promptText);
+    promptEl.innerHTML = `<span class="fi fi-${isoCode} flag-tile" role="img" aria-label="Flag"></span>`;
+  } else {
+    promptEl.textContent = currentQuestion.promptText;
+  }
 
   optionsEl.innerHTML = "";
   currentQuestion.options.forEach((optionValue) => {
